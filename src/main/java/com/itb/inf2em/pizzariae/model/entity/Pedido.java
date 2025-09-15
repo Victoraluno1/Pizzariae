@@ -1,14 +1,24 @@
 package com.itb.inf2em.pizzariae.model.entity;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "Pedido")
 public class Pedido {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(columnDefinition = "DECIMAL(5,2)", nullable = true)
     private double valorPedido;
+    @Column(nullable = false)
     private LocalDateTime data_hora_pedido;
+    @Column(nullable = true)
     private LocalDateTime data_hora_entrega;
     private boolean codstatus;
+    @Column(length = 20, nullable = false)
     private String status;
 
     public void setId(long id) {
